@@ -1,0 +1,71 @@
+/* src/pages/pages.css - reusable styles for CRUD pages */
+.page-wrap {
+  max-width: 1100px;
+  margin: 18px auto;
+}
+.page-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom: 12px;
+}
+.page-title { font-size: 1.4rem; font-weight:700; color: #173a38; }
+
+.card {
+  background: #fff;
+  border: 1px solid rgba(11,35,34,0.06);
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 8px 22px rgba(11,35,34,0.03);
+}
+
+/* top buttons */
+.controls { display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.btn {
+  padding: 8px 12px;
+  border-radius:8px;
+  border: none;
+  cursor:pointer;
+  font-weight:600;
+  background: linear-gradient(90deg,#2b6a6c,#4db6ac);
+  color: #071717;
+}
+.btn.ghost { background: transparent; border: 1px solid rgba(11,35,34,0.06); color: #173a38; }
+.btn.warn { background: #f59e0b; color: #151515; }
+
+.search {
+  margin-left: auto;
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+.search input { padding:8px 10px; border-radius:8px; border:1px solid rgba(11,35,34,0.06); }
+
+/* table */
+.table { width:100%; border-collapse:collapse; margin-top: 12px; }
+.table th { text-align:left; font-size:0.85rem; color:#2b4f4d; padding:10px 8px; border-bottom:1px solid rgba(11,35,34,0.06); }
+.table td { padding:12px 8px; border-bottom:1px solid rgba(11,35,34,0.04); font-size:0.92rem; color:#0b2b2b; }
+.table tr:hover td { background: rgba(43,106,108,0.03); }
+
+/* pagination */
+.pager { display:flex; gap:6px; justify-content:center; margin-top:14px; }
+.page-num { padding:6px 10px; border-radius:6px; background:#f3f6f6; border:1px solid rgba(11,35,34,0.03); cursor:pointer; }
+.page-num.active { background: #173a38; color: #fff; }
+
+/* modal simple */
+.modal-backdrop { position:fixed; inset:0; background: rgba(0,0,0,0.35); display:flex; align-items:center; justify-content:center; z-index:60; }
+.modal { width:560px; max-width:94%; background:white; border-radius:10px; padding:16px; box-shadow: 0 12px 32px rgba(11,35,34,0.18); }
+.form-row { display:flex; gap:10px; margin-bottom:10px; }
+.form-row input, .form-row select, textarea { flex:1; padding:8px 10px; border-radius:8px; border:1px solid rgba(11,35,34,0.06);}
+.form-actions { display:flex; gap:8px; justify-content:flex-end; margin-top:8px; }
+.small-muted { color:#55706f; font-size:0.88rem; }
+/* en tu CSS global o pages.css */
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+  text-decoration: underline;
+}

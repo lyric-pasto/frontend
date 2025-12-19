@@ -1,7 +1,8 @@
+
 import React, { useState } from "react";
 import "./Login.css";
-import logo from "./logo.svg";
-import bg from "./bg.jpg"; // <-- nueva línea
+import logo from "./assets/logo.png";
+import bg from "./assets/login.jpg";
 
 export default function Login({ onLogin }) {
   const [name, setName] = useState("");
@@ -15,16 +16,17 @@ export default function Login({ onLogin }) {
   };
 
   return (
-    <div className="login-viewport">
-      {/* usa style para la imagen de fondo */}
-      <div
-        className="login-bg"
-        style={{ backgroundImage: `url(${bg})` }}
-      />
+    <div
+      className="login-viewport"
+      style={{
+        backgroundImage: `url(${bg})`,
+      }}
+    >
+      <div className="overlay"></div>
       <div className="login-card" role="dialog" aria-labelledby="login-title">
         <header className="login-header">
-          <img src={logo} className="login-logo" alt="Loom-track logo" />
-          <h1 id="login-title">Bienvenido a Loom-track</h1>
+          <img src={logo} className="login-logo" alt="LoomTrack logo" />
+          <h1 id="login-title">Bienvenido a LoomTrack</h1>
           <p className="login-sub">Accede para continuar</p>
         </header>
 
@@ -65,22 +67,24 @@ export default function Login({ onLogin }) {
             <button className="primary" type="submit">
               Entrar
             </button>
-            <button
-              type="button"
-              className="secondary"
-              onClick={() => {
-                setName("invitado");
-                onLogin({ name: "invitado" });
-              }}
-            >
-              Entrar como invitado
-            </button>
+
           </div>
         </form>
 
         <footer className="login-footer">
-          <small>¿No tienes cuenta? Contacta con el administrador.</small>
-        </footer>
+  <small>
+    ¿No tienes cuenta?{" "}
+    <a
+      href="https://wa.me/51928193824?text=Hola,%20quisiera%20crear%20una%20cuenta%20en%20LoomTrack"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="whatsapp-link"
+    >
+      Contáctanos por WhatsApp
+    </a>
+  </small>
+</footer>
+
       </div>
     </div>
   );
