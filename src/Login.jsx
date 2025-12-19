@@ -3,17 +3,42 @@ import React, { useState } from "react";
 import "./Login.css";
 import logo from "./assets/logo.png";
 import bg from "./assets/login.jpg";
+import axios from "axios";
 
 export default function Login({ onLogin }) {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const submit = (e) => {
-    e.preventDefault();
-    if (!name) return alert("Ingresa un nombre de usuario");
-    onLogin({ name, avatar: null });
-  };
+  const submit = async (e) => {
+  e.preventDefault();
+
+  if (!name || !password) {
+    return alert("Usuario y contraseña obligatorios");
+  }
+
+  try {
+    const response = await axios.post(
+      "http://localhost:3001/api/login",
+      {
+        username: name,
+        password: password,
+      }
+    );
+
+    if (response.data.ok) {
+      // Login correcto → pasamos datos reales
+      onLogin(response.data.user);
+    } else {
+      alert("Credenciales incorrectas");
+    }
+  } catch (error) {
+    console.error(error);
+    alert("Error al conectar con el servidor");
+  }
+};
+
+
 
   return (
     <div

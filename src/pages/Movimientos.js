@@ -67,17 +67,7 @@ export default function Movimientos(){
     setModalOpen(false);
   }
 
-  function askDelete(id){
-    setConfirmState({
-      open: true,
-      id,
-      message: "¿Eliminar este movimiento? Se perderá el registro histórico.",
-      onConfirm: () => {
-        setData(d => d.filter(x => x.id !== id));
-        setConfirmState({open:false, id:null, message:"", onConfirm:null});
-      }
-    });
-  }
+
 
   return (
     <div className="page-wrap">
@@ -115,7 +105,6 @@ export default function Movimientos(){
                 <td>{m.motivo}</td>
                 <td style={{textAlign:"right"}}>
                   <button className="btn ghost" onClick={()=>openEdit(m)}>Editar</button>
-                  <button className="btn ghost" onClick={()=>askDelete(m.id)} style={{marginLeft:6}}>Eliminar</button>
                 </td>
               </tr>
             ))}

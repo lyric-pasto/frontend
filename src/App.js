@@ -10,7 +10,6 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
 
-  // Persiste solo cuando hay login claro; si se cierra sesión, lo limpia
   useEffect(() => {
     if (isAuthenticated && user) {
       localStorage.setItem("isAuthenticated", "true");
@@ -21,7 +20,7 @@ function App() {
     }
   }, [isAuthenticated, user]);
 
-  // handler que activa la sesión (llamado desde Login)
+  // handler que activa la sesión 
   const handleLogin = (userData) => {
     setUser(userData);
     setIsAuthenticated(true);
